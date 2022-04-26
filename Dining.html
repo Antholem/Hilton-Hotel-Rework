@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>HTML Hilton Hotel</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #ebedf3;
+		}
+		#top{
+			background-color: #D4F4EC;
+			border-style: outset;
+			border-width: 5px;
+			border-color: #D4F4EC;
+			position: fixed;
+			z-index: 1;
+			font-family: Verdana;
+		}
+		.logo{
+			width: 6%;
+			height: 6%;
+			display: inline-block;
+			margin-left: 3%;
+			margin-top: 1%;
+			margin-bottom: 1%;
+		}
+		.Dininggg{
+			background-color: #70d0c6;
+			border-radius: 12px;
+		}
+		ul{
+			list-style-type: none;
+			overflow: hidden;
+			display: inline-block;
+			margin-left: 14%;
+			font-size: 22px;
+			width: 60%;
+			margin-bottom: 10px;
+		}
+		li{
+			float: left;
+			padding-left: 3%;
+			padding-right: 3%;
+		}
+		li a, .Rooms{
+			display: inline-block;
+			color: black;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			transition: 0.5s;
+		}
+		li a:hover, .dropdown:hover .Rooms{
+			background-color: gray;
+			border-radius: 12px;
+		}
+		li a:active, .dropdown:active .Rooms{
+			background-color: gray;
+			border-radius: 12px;
+		}
+		li a:active, .dropdown:active .Rooms{
+			background-color: #70d0c6;
+			border-radius: 12px;
+		}
+		li.dropdown {
+			display: inline-block;
+		}
+		.otherRoom{
+			display: none;
+			position: absolute;
+			background-color: white;
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+		}
+		.otherRoom a {
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+			text-align: left;
+		}
+		.otherRoom a:hover{
+			background-color: #70d0c6;
+			border-radius: 0;
+		}
+		.otherRoom a:active{
+			background-color: #369e55;
+			border-radius: 0;
+		}
+		.dropdown:hover .otherRoom{
+			display: block;
+		}
+		.pict{
+			width: 100%;
+			height: 400px;
+		}
+		.line{
+			border: 0.1px solid black;
+		}
+		#bottom{
+			width: 100%;
+			z-index: 0;
+			margin-top: -1.5%;
+			padding-top: 2%;
+			padding-bottom: 2%;
+			background-color: gray;
+		}
+		.lpmh{
+			padding-left: 2%;
+			padding-bottom: 2%;
+			color: white;
+			font-family: Verdana;
+			border-bottom: 1px solid white;
+			font-size: 12px;
+		}
+		.how{
+			padding-left: 15%;
+			padding-bottom: 2%;
+			color: white;
+			font-family: Verdana;
+			display: inline-block;
+			font-size: 14px;
+		}
+		.big{
+			font-size: 14px;	
+		}
+		.web{
+			display: inline-block;
+			color: white;
+			font-family: Verdana;
+			margin-left: 10%;
+			font-size: 12px;
+		}
+		.global{
+			display: inline-block;
+			color: white;
+			font-family: Verdana;
+			margin-left: 10%;
+			line-height: 25px;
+			font-size: 12px;
+		}
+		.cookies{
+			display: inline-block;
+			color: white;
+			font-family: Verdana;
+			margin-left: 10%;
+			line-height: 25px;
+			position: absolute;
+			font-size: 12px;
+		}
+		.year{
+			color: white;
+			font-family: Verdana;
+			font-size: 10px;
+			margin-left: 2%;
+			margin-bottom: -1%;
+		}
+		#second{
+			width: 100%;
+			z-index: 0;
+			background-color:  #d6ecf3;
+			padding-top: 2%;
+			padding-bottom: 2%;
+		}
+		.ras{
+			text-align: center;
+			font-size: 30px;
+			font-family: Courier New;
+			background-color: #84d8fa;
+			width: 100%;
+			border-bottom: 3px solid black;
+			border-top: 3px solid black;
+		}
+		hr{
+			border-top: 1px solid black;
+		}
+		#third{
+			width: 100%;
+			background-color:  #d6ecf3;
+			padding-top: 2%;
+			padding-bottom: 2%;
+			display: inline-block;
+		}
+		.poolbar{
+			width: 20%;
+			height: 20%;
+			margin-left: 2%;
+			display: inline-block;
+		}
+		.infpool{
+			display: inline-block;
+			float: right;
+			margin-right: 50%;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 25px;
+		}
+		.infpool2{
+			display: inline-block;
+			float: right;
+			margin-right: 9.2%;
+			margin-top: -16.5%;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 18px;
+		}
+		.infpool3{
+			display: inline-block;
+			float: right;
+			margin-right: 10.7%;
+			margin-top: -13.5%;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 18px;
+		}
+		.infpool4{
+			display: inline-block;
+			float: right;
+			margin-right: 30%;
+			margin-top: -10.5%;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 18px;
+		}
+		.hua{
+			width: 20%;
+			height: 20%;
+			margin-right: 2%;
+			float: right;
+			display: inline-block;
+		}
+		.hua1{
+			display: inline-block;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 25px;
+			margin-left: 2%;
+		}
+		.hua2{
+			display: inline-block;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 25px;
+			margin-left: 2%;
+			font-family: Courier New;
+			font-size: 18px;
+		}
+		.hua3{
+			display: inline-block;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 25px;
+			margin-left: 2%;
+			font-family: Courier New;
+			font-size: 18px;
+		}
+		.hua4{
+			display: inline-block;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 25px;
+			margin-left: 2%;
+			font-family: Courier New;
+			font-size: 18px;
+		}
+		.hua5{
+			display: inline-block;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 25px;
+			margin-left: 2%;
+			font-family: Courier New;
+			font-size: 18px;
+		}
+		.hua6{
+			display: inline-block;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 25px;
+			margin-left: 2%;
+			font-family: Courier New;
+			font-size: 18px;
+		}
+		.hua7{
+			display: inline-block;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 25px;
+			margin-left: 2%;
+			font-family: Courier New;
+			font-size: 18px;
+		}
+		.ki1{
+			display: inline-block;
+			float: right;
+			margin-right: 50%;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 25px;
+		}
+		.ki2{
+			display: inline-block;
+			float: right;
+			margin-right: 12%;
+			margin-top: -16.5%;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 18px;
+		}
+		.ki3{
+			display: inline-block;
+			float: right;
+			margin-right: 11.2%;
+			margin-top: -13.5%;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 18px;
+		}
+		.ki4{
+			display: inline-block;
+			float: right;
+			margin-right: 10.3%;
+			margin-top: -10.5%;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 18px;
+		}
+		.ki5{
+			display: inline-block;
+			float: right;
+			margin-right: 10.3%;
+			margin-top: -10.5%;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 18px;
+		}
+		.ki6{
+			display: inline-block;
+			float: right;
+			margin-right: 10.3%;
+			margin-top: -10.5%;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 18px;
+		}
+		.port{
+			display: inline-block;
+			float: right;
+			margin-right: 67%;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 25px;
+		}
+		.port2{
+			display: inline-block;
+			float: right;
+			margin-right: 9.5%;
+			margin-top: -16.5%;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 18px;
+		}
+		.port3{
+			display: inline-block;
+			float: right;
+			margin-right: 15.2%;
+			margin-top: -13.5%;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 18px;
+		}
+		.port4{
+			display: inline-block;
+			float: right;
+			margin-right: 16.7%;
+			margin-top: -10.5%;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 18px;
+		}
+		.port5{
+			display: inline-block;
+			float: right;
+			margin-right: 11.8%;
+			margin-top: -7.5%;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 18px;
+		}
+		.port6{
+			display: inline-block;
+			float: right;
+			margin-right: 36.5%;
+			margin-top: -4.5%;
+			padding-left: 1%;
+			padding-right: 1%;
+			background-color: #84d8fa;
+			border-radius: 10px;
+			font-family: Courier New;
+			font-size: 18px;
+		}
+	</style>
+	</head>
+	<body>
+	<div id="top">
+		<a href="Home.html"><img src="logo.png" class="logo"></a>
+		<ul>
+			<li><a href="Home.html">Home</a></li>
+			<li class="dropdown">
+			<a href="Rooms.html" >Rooms</a>
+			<div class="otherRoom">
+				<a href="GaRoom.html" class="line">Guest Rooms</a>
+				<a href="Suits.html" class="line">Suites</a>
+				<a href="Executive.html" class="line">Executive</a>
+				<a href="Accessible.html" class="line">Accessible</a>
+			<li><a href="Gallery.html">Gallery</a></li>
+			<li><a href="Dining.html" class="Dininggg">Dining</a></li>
+			<li><a href="Meetings.html">Meetings</a></li>
+		  </div>
+		</li>
+		</ul>
+	</div>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br /><br /><br />
+		<p class="ras"><b>Dining and drinks</b></p>
+	<br />
+	<hr>
+	<br />
+	<div id="second">
+		<img src="pool-bar.JPG" class="poolbar">
+		<p class="infpool"><b>Freestyle Pool Bar</b></p>
+		<p class="infpool2">Freestyle Pool Bar is an enjoyable spot for a refreshing break after a swim.<br />
+		<p class="infpool3">Delight in delectable light snacks and expertly concocted cocktails, or be<br />
+		<p class="infpool4">entertained with live mixology at the swim-up bar.<br />
+		</p>
+	</div>
+	<br />
+	<hr>
+	<br />
+	<div id="third">
+		<img src="hua-yan.JPG" class="hua">
+		<p class="hua1"><b>Hua Yuan</b></p>
+		<br /><br />
+		<p class="hua2">Hua Yuan offers Shanghainese cuisine revisited in a modern way. The casual yet upscale</p>
+		<br /><br />
+		<p class="hua3">restaurant serves authentic Shanghainese favorites that are complementary, daring </p>
+		<br /><br />
+		<p class="hua4">and creatively presented. Among the standout dishes are dumplings including Xiao Long Bao,</p>
+		<br /><br />
+		<p class="hua5">Hanging Roasted Duck, Red Braised Pork, and seafood such as Hairy Crab and Crayfish. For</p>
+		<br /><br />
+		<p class="hua6">exclusive affairs, the restaurant has three private dining rooms that can fit from 10</p>
+		<br /><br />
+		<p class="hua7">to as much as 12 people.</p>
+		</p>
+	</div>
+	<br />
+	<br />
+	<hr>
+	<br />
+	<div id="second">
+		<img src="kusina-sea.JPG" class="poolbar">
+		<p class="ki1"><b>Kusina Sea Kitchens</b></p>
+		<p class="ki2">Kusina is a vibrant and colorful all-day interactive buffet outlet serving<br />
+		<p class="ki3">breakfast, lunch and dinner daily. Located on the third floor of the hotel,<br />
+		<p class="ki4">the restaurant features a wholesome breakfast with Asian and Western options<br />
+		<p class="ki5">that evolves to a more Filipino offering during lunch and dinner with a<br />
+		<p class="ki6">focus on fresh seafood and both local and international favorites.<br />
+		</p>
+	</div>
+	<br />
+	<hr>
+	<br />
+	<div id="third">
+		<img src="hua-yan.JPG" class="hua">
+		<p class="hua1"><b>Madison Lounge & Bar</b></p>
+		<br /><br />
+		<p class="hua2">Showcasing the pulsating urban vibe of New York City, Madison captures the</p>
+		<br /><br />
+		<p class="hua3">ambiance of a modern café and lounge. Madison Lounge + Bar is a sophisticated place</p>
+		<br /><br />
+		<p class="hua4">that transitions to suit today’s multi-faceted lifestyle - an airy café in the morning,</p>
+		<br /><br />
+		<p class="hua5">offering an artisanal coffee selection and Grab & Go choices for people on-the-go;</p>
+		<br /><br />
+		<p class="hua6"> and a sophisticated bar in the evening, ideal for pre or after dinner cocktails.</p>
+		</p>
+	</div>
+	<br />
+	<br />
+	<hr>
+	<br />
+	<div id="second">
+		<img src="port.JPG" class="poolbar">
+		<p class="port"><b>Port</b></p>
+		<p class="port2">Paying homage to the Port of Manila, the largest and historically significant<br />
+		<p class="port3">shipping gateway to the Philippines, Port Bar makes a perfect place to<br />
+		<p class="port4">unwind for casual drink. Guests can enjoy the finest range of local,<br />
+		<p class="port5">international and craft beers as well as amber spirits including whiskeys,<br />
+		<p class="port6">cognacs and dark rums from around the world<br />
+		</p>
+	</div>
+	<br />
+	<br />
+	<hr>
+	<br />
+	<br />
+	<div id="bottom">
+		<p class="lpmh">Locations > Philippines > Manila > Hilton Manila</p><br />
+		<p class="how"><span class="big">How can we help?</span><br /><br />
+		1-800-HILTONS<br /><br />
+		Call us, it's toll-free</p>
+		<p class="web">Web Accessibility<br /><br />
+		Hilton Gift Card<br /><br />
+		Customer Support</p>
+		<p class="global">Global Privacy Statement<br />
+		Careers<br />
+		Development	<br />
+		Media</p>
+		<p class="cookies">Cookies Statement<br />
+		Site Usage Agreement<br />
+		AdChoices<br />
+		Personal Data Requests<br />
+		Do Not Sell My Information<br />
+		Modern Slavery and Human Trafficking<br />
+		Hilton Honors Discount Terms & Conditions</p>
+		<br />
+		<br />
+		<br />
+		<p class="lpmh"></p><br />
+		<p class="year">©2020 Hilton</p>
+	</div>
+	</body>
+</html>
+<!--Manalo, Sam Antholem G.-->
+<!--Dela Cruz, Mary Ashley G.-->
+<!--WD-203-->

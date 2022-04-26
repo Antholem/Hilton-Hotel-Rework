@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>HTML Hilton Hotel</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #ebedf3;
+		}
+		#top{
+			background-color: #D4F4EC;
+			border-style: outset;
+			border-width: 5px;
+			border-color: #D4F4EC;
+			position: fixed;
+			z-index: 1;
+			font-family: Verdana;
+		}
+		.logo{
+			width: 6%;
+			height: 6%;
+			display: inline-block;
+			margin-left: 3%;
+			margin-top: 1%;
+			margin-bottom: 1%;
+		}
+		.book{
+			background-color: #70d0c6;
+			border-radius: 12px;
+		}
+		ul{
+			list-style-type: none;
+			overflow: hidden;
+			display: inline-block;
+			margin-left: 14%;
+			font-size: 22px;
+			width: 60%;
+			margin-bottom: 10px;
+		}
+		li{
+			float: left;
+			padding-left: 3%;
+			padding-right: 3%;
+		}
+		li a, .Rooms{
+			display: inline-block;
+			color: black;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			transition: 0.5s;
+		}
+		li a:hover, .dropdown:hover .Rooms{
+			background-color: gray;
+			border-radius: 12px;
+		}
+		li a:active, .dropdown:active .Rooms{
+			background-color: gray;
+			border-radius: 12px;
+		}
+		li a:active, .dropdown:active .Rooms{
+			background-color: #70d0c6;
+			border-radius: 12px;
+		}
+		li.dropdown {
+			display: inline-block;
+		}
+		.otherRoom{
+			display: none;
+			position: absolute;
+			background-color: white;
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+		}
+		.otherRoom a {
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+			text-align: left;
+		}
+		.otherRoom a:hover{
+			background-color: #70d0c6;
+			border-radius: 0;
+		}
+		.otherRoom a:active{
+			background-color: #369e55;
+			border-radius: 0;
+		}
+		.dropdown:hover .otherRoom{
+			display: block;
+		}
+		.pict{
+			width: 100%;
+			height: 400px;
+		}
+		.line{
+			border: 0.1px solid black;
+		}
+		#bottom{
+			width: 100%;
+			z-index: 0;
+			margin-top: -1.5%;
+			padding-top: 2%;
+			padding-bottom: 2%;
+			background-color: gray;
+		}
+		.lpmh{
+			padding-left: 2%;
+			padding-bottom: 2%;
+			color: white;
+			font-family: Verdana;
+			border-bottom: 1px solid white;
+			font-size: 12px;
+		}
+		.how{
+			padding-left: 15%;
+			padding-bottom: 2%;
+			color: white;
+			font-family: Verdana;
+			display: inline-block;
+			font-size: 14px;
+		}
+		.big{
+			font-size: 14px;	
+		}
+		.web{
+			display: inline-block;
+			color: white;
+			font-family: Verdana;
+			margin-left: 10%;
+			font-size: 12px;
+		}
+		.global{
+			display: inline-block;
+			color: white;
+			font-family: Verdana;
+			margin-left: 10%;
+			line-height: 25px;
+			font-size: 12px;
+		}
+		.cookies{
+			display: inline-block;
+			color: white;
+			font-family: Verdana;
+			margin-left: 10%;
+			line-height: 25px;
+			position: absolute;
+			font-size: 12px;
+		}
+		.year{
+			color: white;
+			font-family: Verdana;
+			font-size: 10px;
+			margin-left: 2%;
+			margin-bottom: -1%;
+		}
+		#second{
+			width: 100%;
+			z-index: 0;
+			padding-top: 2%;
+			padding-bottom: 2%;
+			height: 590px;
+			margin-left: 35%;
+			margin-top: 1.5%;
+			border-radius: 7px;
+			width: 28%;
+			text-align: center;
+			font-family: Verdana;
+			background-color: rgba(255, 255, 255, 0.5);
+		}
+		hr{
+			border-top: 1px solid black;
+		}
+		legend{
+			text-align: center;
+		}
+		form{
+			text-align: center;
+			font-family: Verdana;
+			font-size: 14px;
+		}
+		body{
+			background-image: url(feed.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		#subcomm{
+			padding: 1%;
+			font-size: 20px;
+			margin-top: 3%;
+			padding-left: 3%;
+			padding-right: 3%;
+			color: white;
+			background-color: #84d8fa;
+			font-family: Verdana;
+			border-style: none;
+		}
+		#subcomm:hover{
+			background-color: #6ca6cd;
+		}
+		#subcomm:active{
+			background-color: #28717a;
+		}
+		#hotelname{
+			position: absolute;
+			font-size: 45px;
+			color: white;
+			right: 1.5%;
+		}
+		#tagline{
+			position: absolute;
+			font-size: 25px;
+			color: white;
+			right: 15%;
+			top: 33%;
+			font-family: Verdana;
+		}
+		#more{
+			position: absolute;
+			font-size: 20px;
+			color: white;
+			font-family: Verdana;
+			top: 45%;
+			left: 57%;
+			text-decoration: none;
+			background-color: #3672c7;
+			padding: 0.5%;
+			border-radius: 20px;
+			padding-left: 1%;
+			padding-right: 1%;
+		}
+		#more:hover{
+			background-color: #4297b3;
+		}
+		#more:active{
+			background-color: #28717a;
+		}
+	</style>
+	</head>
+	<body>
+	<div id="top">
+		<a href="Home.html"><img src="logo.png" class="logo"></a>
+		<ul>
+			<li><a href="Home.html">Home</a></li>
+			<li class="dropdown">
+			<a href="Rooms.html" class="Rooms">Rooms</a>
+			<div class="otherRoom">
+				<a href="GaRoom.html" class="line">Guest Rooms</a>
+				<a href="Suits.html" class="line">Suites</a>
+				<a href="Executive.html" class="line">Executive</a>
+				<a href="Accessible.html" class="line">Accessible</a>
+			<li><a href="Gallery.html">Gallery</a></li>
+			<li><a href="Dining.html">Dining</a></li>
+			<li><a href="Meetings.html">Meetings</a></li>
+		  </div>
+		</li>
+		</ul>
+	</div>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<div id="hotelpic">
+	<div id="second">
+		<form id="webtech" action="#" method="post">
+		<div>	
+			<label for="feedback"></label>Customer Feedback Form</label><br />
+			<label for="improve"></label>Help us improve..</label><br />
+			<br/>
+					<label for="firstname"></label>First Name*</label><br />
+					<input type="text" name="name" id="firstname" required="yes"><br /><br />
+					
+					<label for="lastname"></label>Last Name*</label><br />
+					<input type="text" name="name" id="lastname" required="yes"><br /><br />
+					
+					<label for="mail">E-mail* </label><br />
+					<input type="email" name="emailPick" id="mail" required="yes"><br /><br />
+					
+					<label for="phoneNum">Phone number </label><br />
+					<input type="tel" name="telPick" id="phoneNum" maxlength="11"><br /><br />
+
+					<label for="visit">Is it your first visit to our website? </label><br />
+					<input type="radio" name="ans" value="yes" id="Yes">
+					<label for="yes">Yes</label>
+					<input type="radio" name="ans" value="no" id="No">
+					<label for="no">No</label>
+					
+					<br /><br />
+
+					<label for="visit">Food Quality: </label><br />
+					<input type="radio" name="food" value="excel" id="Excellent">
+					<label for="excel">Excellent</label>
+					<input type="radio" name="food" value="good" id="Good">
+					<label for="good">Good</label>
+					<input type="radio" name="food" value="diss" id="Dissatisfied">
+					<label for="diss">Dissatisfied</label>
+
+					<br /><br />
+
+					<label for="service">Service Quality: </label><br />
+					<input type="radio" name="Service" value="excel" id="Excellent">
+					<label for="excel">Excellent</label>
+					<input type="radio" name="Service" value="good" id="Good">
+					<label for="good">Good</label>
+					<input type="radio" name="Service" value="diss" id="Dissatisfied">
+					<label for="diss">Dissatisfied</label>
+
+					<br /><br />
+
+					<label for="clean">Price: </label><br />
+					<input type="radio" name="Price" value="excel" id="Excellent">
+					<label for="excel">Excellent</label>
+					<input type="radio" name="Price" value="good" id="Good">
+					<label for="good">Good</label>
+					<input type="radio" name="Price" value="diss" id="Dissatisfied">
+					<label for="diss">Dissatisfied</label>
+
+					<br/><br/>
+					<label for="rate">Rate our website:</label>
+					0<input type="range" id="ratebox" name="rate" value="5" min="0" max="5" step="1" required="yes">5<br/><br/>
+
+					<label for="comment"></label>Comments or Suggestions: </label><br />
+					<textarea name="comm" id="comm"></textarea>
+							
+			<div id="sub">
+				<br />
+				<b id="subcomm" onclick="ty()">Submit</b>
+			</div>
+			<br />
+		</div>
+		</form>
+	</div>
+	</div>
+	<br />
+	<br />
+	<br />
+	<div id="bottom">
+		<p class="lpmh">Locations > Philippines > Manila > Hilton Manila</p><br />
+		<p class="how"><span class="big">How can we help?</span><br /><br />
+		1-800-HILTONS<br /><br />
+		Call us, it's toll-free</p>
+		<p class="web">Web Accessibility<br /><br />
+		Hilton Gift Card<br /><br />
+		Customer Support</p>
+		<p class="global">Global Privacy Statement<br />
+		Careers<br />
+		Development	<br />
+		Media</p>
+		<p class="cookies">Cookies Statement<br />
+		Site Usage Agreement<br />
+		AdChoices<br />
+		Personal Data Requests<br />
+		Do Not Sell My Information<br />
+		Modern Slavery and Human Trafficking<br />
+		Hilton Honors Discount Terms & Conditions</p>
+		<br />
+		<br />
+		<br />
+		<p class="lpmh"></p><br />
+		<p class="year">©2020 Hilton</p>
+	</div>
+	</body>
+</html>
+<script>
+function ty(){
+	alert("Thank you, "+document.getElementById("firstname").value+" "+document.getElementById("lastname").value+"!")
+}
+</script>
+<!--Manalo, Sam Antholem G.-->
+<!--Dela Cruz, Mary Ashley G.-->
+<!--WD-203-->

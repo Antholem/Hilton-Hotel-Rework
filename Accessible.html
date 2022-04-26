@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>HTML Hilton Hotel</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #ebedf3;
+		}
+		#top{
+			background-color: #D4F4EC;
+			border-style: outset;
+			border-width: 5px;
+			border-color: #D4F4EC;
+			position: fixed;
+			z-index: 1;
+			font-family: Verdana;
+		}
+		.logo{
+			width: 6%;
+			height: 6%;
+			display: inline-block;
+			margin-left: 3%;
+			margin-top: 1%;
+			margin-bottom: 1%;
+		}
+		.Rooms{
+			background-color: #70d0c6;
+			border-radius: 12px;
+		}
+		ul{
+			list-style-type: none;
+			overflow: hidden;
+			display: inline-block;
+			margin-left: 14%;
+			font-size: 22px;
+			width: 60%;
+			margin-bottom: 10px;
+		}
+		li{
+			float: left;
+			padding-right: 3%;
+		}
+		li a, .Rooms{
+			display: inline-block;
+			color: black;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			transition: 0.5s;
+		}
+		li a:hover, .dropdown:hover .Rooms{
+			background-color: gray;
+			border-radius: 12px;
+		}
+		li a:active, .dropdown:active .Rooms{
+			background-color: gray;
+			border-radius: 12px;
+		}
+		li a:active, .dropdown:active .Rooms{
+			background-color: #70d0c6;
+			border-radius: 12px;
+		}
+		li.dropdown {
+			display: inline-block;
+		}
+		.otherRoom{
+			display: none;
+			position: absolute;
+			background-color: white;
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+		}
+		.otherRoom a {
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+			text-align: left;
+		}
+		.otherRoom a:hover{
+			background-color: #70d0c6;
+			border-radius: 0;
+		}
+		.otherRoom a:active{
+			background-color: #369e55;
+			border-radius: 0;
+		}
+		.dropdown:hover .otherRoom{
+			display: block;
+		}
+		.pict{
+			width: 100%;
+			height: 400px;
+		}
+		.line{
+			border: 0.1px solid black;
+		}
+		#bottom{
+			width: 100%;
+			z-index: 0;
+			margin-top: -1.5%;
+			padding-top: 2%;
+			padding-bottom: 2%;
+			background-color: gray;
+		}
+		.lpmh{
+			padding-left: 2%;
+			padding-bottom: 2%;
+			color: white;
+			font-family: Verdana;
+			border-bottom: 1px solid white;
+			font-size: 12px;
+		}
+		.how{
+			padding-left: 15%;
+			padding-bottom: 2%;
+			color: white;
+			font-family: Verdana;
+			display: inline-block;
+			font-size: 14px;
+		}
+		.big{
+			font-size: 14px;	
+		}
+		.web{
+			display: inline-block;
+			color: white;
+			font-family: Verdana;
+			margin-left: 10%;
+			font-size: 12px;
+		}
+		.global{
+			display: inline-block;
+			color: white;
+			font-family: Verdana;
+			margin-left: 10%;
+			line-height: 25px;
+			font-size: 12px;
+		}
+		.cookies{
+			display: inline-block;
+			color: white;
+			font-family: Verdana;
+			margin-left: 10%;
+			line-height: 25px;
+			position: absolute;
+			font-size: 12px;
+		}
+		.year{
+			color: white;
+			font-family: Verdana;
+			font-size: 10px;
+			margin-left: 2%;
+			margin-bottom: -1%;
+		}
+		#second{
+			width: 100%;
+			z-index: 0;
+			background-color: #d6ecf3;
+			padding-top: 2%;
+			padding-bottom: 2%;
+		}
+		.ras{
+			text-align: center;
+			font-size: 30px;
+			font-family: Courier New;
+			background-color: #84d8fa;
+			width: 100%;
+			border-bottom: 3px solid black;
+			border-top: 3px solid black;
+		}
+		.r1{
+			width: 20%;
+			height: 20%;
+			margin-left: 5%;
+			display: inline-block;
+		}
+		.r2{
+			width: 20%;
+			height: 20%;
+			margin-left: 3%;
+			display: inline-block;
+		}
+		.r3{
+			width: 20%;
+			height: 20%;
+			margin-left: 3%;
+			display: inline-block;
+		}
+		.r4{
+			width: 20%;
+			height: 20%;
+			margin-left: 3%;
+			display: inline-block;
+		}
+		.tr1{
+			font-family: Courier New;
+			font-size: 20px;
+			display: inline-block;
+			margin-left: 6%;
+			background-color: #84d8fa;
+			padding: 0.5%;
+			border-radius: 10px;
+			transition: 0.5s;
+		}
+		.tr2{
+			font-family: Courier New;
+			font-size: 20px;
+			display: inline-block;
+			margin-left: 8%;
+			background-color: #84d8fa;
+			padding: 0.5%;
+			border-radius: 10px;
+			transition: 0.5s;
+		}
+		.tr3{
+			font-family: Courier New;
+			font-size: 20px;
+			display: inline-block;
+			margin-left: 12%;
+			background-color: #84d8fa;
+			padding: 0.5%;
+			border-radius: 10px;
+			transition: 0.5s;
+		}
+		.tr4{
+			font-family: Courier New;
+			font-size: 20px;
+			display: inline-block;
+			margin-left: 12%;
+			background-color: #84d8fa;
+			padding: 0.5%;
+			border-radius: 10px;
+			transition: 0.5s;
+		}
+		.vroom:hover,.tr1:hover,.tr2:hover,.tr3:hover,.tr4:hover{
+			background-color: gray;
+		}
+		.vroom:active,.tr1:active,.tr2:active,.tr3:active,.tr4:active{
+			background-color: #135c29;
+		}
+		.rlink{
+			color: black;
+		}
+		.vroom{
+			font-family: Courier New;
+			font-size: 20px;
+			display: inline-block;
+			background-color: #84d8fa;
+			padding: 0.5%;
+			border-radius: 10px;
+			transition: 0.5s;
+			margin-left: 43%;
+		}
+		hr{
+			border-top: 1px solid black;
+		}
+		.rpiclink:hover{
+			opacity: 0.8;
+		}
+		.un{
+			opacity: 0.3;
+		}
+	</style>
+	</head>
+	<body>
+	<div id="top">
+		<a href="Home.html"><img src="logo.png" class="logo"></a>
+		<ul>
+			<li><a href="Home.html">Home</a></li>
+			<li class="dropdown">
+			<a href="Rooms.html" class="Rooms">Rooms</a>
+			<div class="otherRoom">
+				<a href="GaRoom.html" class="line">Guest Rooms</a>
+				<a href="Suits.html" class="line">Suites</a>
+				<a href="Executive.html" class="line">Executive</a>
+				<a href="Accessible.html" class="line">Accessible</a>
+			<li><a href="Gallery.html">Gallery</a></li>
+			<li><a href="Dining.html">Dining</a></li>
+			<li><a href="Meetings.html">Meetings</a></li>
+			<li><a href="book.html">Book</a></li>
+		  </div>
+		</li>
+		</ul>
+	</div>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<div id="second">
+		<p class="ras"><b>Accessible</b></p><br/><br />
+		<a href="kar.html" class="rpiclink"><img class="r1" src="room-10.jpg"></a>
+		<a href="#" class="un"><img class="r2" src="room-7.jpg"></a>
+		<a href="#" class="un"><img class="r3" src="room-9.jpg"></a>
+		<a href="#" class="un"><img class="r4" src="room-11.jpg"></a><br/><br />
+		<a href="kar.html" class="rlink"><p class="tr1"><b>King Accessible Room</b></p></a>
+		<a href="#" class="rlink"><p class="tr2"><b>Unavailable</b></p></a>
+		<a href="#" class="rlink"><p class="tr3"><b>Unavailable</b></p></a>
+		<a href="#" class="rlink"><p class="tr4"><b>Unavailable</b></p></a>
+		<br />
+		<br />
+		<a href="Rooms.html" class="rlink"><p class="vroom"><b>View All Rooms</b></p></a>
+	</div>
+	<br />
+	<hr>
+	<br />
+	<br />
+	<div id="bottom">
+		<p class="lpmh">Locations > Philippines > Manila > Hilton Manila</p><br />
+		<p class="how"><span class="big">How can we help?</span><br /><br />
+		1-800-HILTONS<br /><br />
+		Call us, it's toll-free</p>
+		<p class="web">Web Accessibility<br /><br />
+		Hilton Gift Card<br /><br />
+		Customer Support</p>
+		<p class="global">Global Privacy Statement<br />
+		Careers<br />
+		Development	<br />
+		Media</p>
+		<p class="cookies">Cookies Statement<br />
+		Site Usage Agreement<br />
+		AdChoices<br />
+		Personal Data Requests<br />
+		Do Not Sell My Information<br />
+		Modern Slavery and Human Trafficking<br />
+		Hilton Honors Discount Terms & Conditions</p>
+		<br />
+		<br />
+		<br />
+		<p class="lpmh"></p><br />
+		<p class="year">©2020 Hilton</p>
+	</div>
+	</body>
+</html>
+<!--Manalo, Sam Antholem G.-->
+<!--Dela Cruz, Mary Ashley G.-->
+<!--WD-203-->
